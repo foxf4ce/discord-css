@@ -141,6 +141,7 @@
         [class^="badge_"] {
             height: 2ch;
             width: 2ch;
+            margin: 0;
             vertical-align: middle;
         }
 
@@ -199,4 +200,13 @@
         margin: 1ch 1ch 0;
         padding: 1ch;
     }
+
+    /* Threads */
+    [class^="spine_"] {
+        left: -2.5ch;
+        width: 2.2ch;
+    }
+}
+[class*="compact"][class*="hasThread_"] [class^="contents_"]::before {
+    left: 4.5ch;
 }
