@@ -11,11 +11,11 @@
         --custom-emoji-size-emoji: 2ch;
         --custom-message-meta-space: 1ch;
         --custom-message-reply-message-preview-line-height: 1.375rem;
-        font-family: monospace !important;
+        font-family: var(--font-code) !important;
     }
-    [class^="contents_"]:not([class*="container_"] *) {
+    [class^="contents_"]:not([class*="pollContainer_"] *) {
         font-size: 1rem;
-        text-indent: calc(-1*(-3ch + var(--custom-message-margin-compact-indent)));
+        text-indent: -4ch;
     }
     [class^="gridContainer_"] *,
     [class*="pollContainer_"] *,
@@ -68,7 +68,9 @@
         --text-indent: calc((var(--custom-message-margin-compact-indent) - 1ch) * -1);
     }
     [class^="repliedMessageClickableSpine_"] {
-        left: calc(-1*(.2*var(--avatar-size) + var(--gutter)));
+        left: -2ch;
+        margin-right: .4ch;
+        margin-bottom: 0;
     }
     [class^="replyBadge_"] {
         margin-right: 1ch;
@@ -169,6 +171,7 @@
             width: 2ch;
             margin: 0;
             margin-top: -.4ch;
+            vertical-align: middle;
         }
     }
 
@@ -200,13 +203,17 @@
         margin: 1ch 1ch 0;
         padding: 1ch;
     }
-
-    /* Threads */
+    
     [class^="spine_"] {
-        left: -2.5ch;
-        width: 2.2ch;
+        left: -2.57ch;
+        width: 2.3ch;
     }
 }
 [class*="compact"][class*="hasThread_"] [class^="contents_"]::before {
-    left: 4.5ch;
+    left: 5ch;
+    margin-left: -1px;
+}
+
+[class^="textArea_"] * {
+    font-family: var(--font-code);
 }
