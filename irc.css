@@ -1,42 +1,62 @@
 :root {
-    --custom-message-margin-compact-indent: 7ch;
+    --font-code: monospace; /* Optional custom font */
+
+    --irc-indent: 3;
+    --irc-newline-indent: 8;
+    --irc-reply-indent: 8;
+    --irc-reply-spine-length: 3;
 }
-[id^="chat-messages"] [class*="compact"] {
+[id^="chat-messages"] [class*="compact_"] {
     margin-top: 0;
     padding-top: 0;
     padding-bottom: 0;
-    padding-right: 3ch !important;
+    padding-left: calc(var(--irc-newline-indent) * 1ch);
 }
 [class*="compact_"] {
+    /* Fonts */
     * {
-        --custom-emoji-size-emoji: 2ch;
+        font-family: var(--font-code);
+        
+        :not([id^="message-accessories-"] *),
+        code.inline,
+        [class^="textContainer"] code { /* Text file previews */
+            font-size: 1rem;
+            line-height: 1.375rem;
+        }
+    }
+    [class^="embedWrapper_"] *,
+    [class^="attachment_"] *,
+    [class^="children_"] * { /* Those weird bot buttons */
+        font-family: var(--font-primary)
+    }
+    font-family: var(--font-code);
+    font-size: 1rem;
+
+    /* Indentation */
+    * {
         --custom-message-meta-space: 1ch;
-        --custom-message-reply-message-preview-line-height: 1.375rem;
-        font-family: var(--font-code) !important;
+        --custom-message-margin-compact-indent: 7ch;
     }
-    [class^="contents_"]:not([class*="pollContainer_"] *) {
-        font-size: 1rem;
-        text-indent: -4ch;
+    > [class^="contents_"] {
+        margin-left: 0;
+        padding-left: 0;
+        text-indent: calc((var(--irc-indent) - var(--irc-newline-indent)) * 1ch);
     }
-    [class^="gridContainer_"] *,
-    [class*="pollContainer_"] *,
-    [class^="nonVisualMediaItemContainer_"] [class^="text-sm"] *,
-    [class^="reactions_"] * {
-        font-family: var(--font-display) !important;
+    [class^="repliedMessage_"] {
+        margin-left: calc((var(--irc-reply-indent) - var(--irc-newline-indent)) * 1ch);
+        padding-left: 0ch;
+        text-indent: 0ch;
+
     }
+
+    /* Message headers */
     [class^="latin24CompactTimeStamp_"] {
         height: auto;
         width: auto;
-        font-size: 1rem;
         opacity: 100;
-    }
-    [id^="message-reply-context-"],
-    [class^="edited_"] {
-        font-size: 1rem;
     }
     [id^="message-username-"] {
         margin-right: 0;
-        font-size: 1rem;
     }
 
     /* Timestamp brackets */
@@ -69,9 +89,8 @@
         --text-indent: calc((var(--custom-message-margin-compact-indent) - 1ch) * -1);
     }
     [class^="repliedMessageClickableSpine_"] {
-        left: -2ch;
-        margin-right: .4ch;
-        margin-bottom: 0;
+        left: calc(var(--irc-reply-spine-length) * -1ch);
+        margin: 0 4px 0 2px;
     }
     [class^="replyBadge_"] {
         margin-right: 1ch;
@@ -153,14 +172,20 @@
             font-size: inherit;
         }
     }
+    [id^="message-reply-context-"] [class^="chipletContainerInner_"] {
+        margin-left: 0;
+    }
 
     /* Emoji */
     .emoji {
+        height: 2ch;
+        width: 2ch;
         vertical-align: middle;
     }
 
     /* Mentions */
-    .mention {
+    .mention,
+    [class^="roleMention_"] {
         padding: 0;
     }
 
@@ -180,14 +205,12 @@
     code.inline {
         margin: 0;
         padding: 0;
-        font-size: 100%;
         border: none;
         box-shadow: 0 0 0 1px inset var(--background-tertiary);
     }
     pre,
     pre * {
         margin: 0;
-        font-size: 1rem;
         line-height: var(--custom-message-reply-message-preview-line-height)
     }
     [class^="codeContainer_"] code {
@@ -204,17 +227,23 @@
         margin: 1ch 1ch 0;
         padding: 1ch;
     }
-    
-    [class^="spine_"] {
-        left: -2.57ch;
-        width: 2.3ch;
-    }
-}
-[class*="compact"][class*="hasThread_"] [class^="contents_"]::before {
-    left: 5ch;
-    margin-left: -1px;
 }
 
+/* Thread Spines */
+[class*="compact"][class*="hasThread_"] {
+    [class^="spine_"] { /* The top half that is straight */
+        left: calc(var(--irc-reply-spine-length) * -1ch);
+        margin-left: 2px;
+        width: calc((var(--irc-reply-spine-length) - 0.5) * 1ch);
+    }
+
+    [class^="contents_"]::before { /* The bottom half that bends */
+        left: calc(var(--irc-reply-spine-length) * -1ch);
+        margin-left: 2px;
+    }
+}
+
+/* Message input */
 [class^="textArea_"] * {
     font-family: var(--font-code);
 }
