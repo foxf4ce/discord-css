@@ -1,253 +1,254 @@
 :root {
-    --font-code: monospace; /* Optional custom font */
+  --font-code: monospace; /* Optional custom font */
 
-    --irc-indent: 3;
-    --irc-newline-indent: 8;
-    --irc-reply-indent: 8;
-    --irc-reply-spine-length: 3;
+  /* Custom indentation, values represent number of blank spaces from the left */
+  --irc-indent: 3;
+  --irc-newline-indent: 8;
+  --irc-reply-indent: 8;
+  --irc-reply-spine-length: 3;
 }
 [id^="chat-messages"] [class*="compact_"] {
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: calc(var(--irc-newline-indent) * 1ch); 
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: calc(var(--irc-newline-indent) * 1ch); 
 }
 [class*="compact_"] {
-    /* Fonts */
-    * {
-        font-family: var(--font-code);
-        
-        :not([id^="message-accessories-"] *) {
-            font-size: 1rem;
-            line-height: 1.375rem;
-        }
-    }
-    [class^="repliedMessage"],
-    code.inline,
-    [class^="textContainer"] code /* Text file previews */ {
-        font-size: 1rem;
-        line-height: 1.375rem;
-    }
-    [class^="embedWrapper_"] *,
-    [class^="attachment_"] *,
-    [class^="children_"] * /* Those weird bot buttons */ {
-        font-family: var(--font-primary)
-    }
+  /* Fonts */
+  * {
     font-family: var(--font-code);
+    
+    :not([id^="message-accessories-"] *) {
+      font-size: 1rem;
+      line-height: 1.375rem;
+    }
+  }
+  [class^="repliedMessage"],
+  code.inline,
+  [class^="textContainer"] code /* Text file previews */ {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
+  [class^="embedWrapper_"] *,
+  [class^="attachment_"] *,
+  [class^="children_"] * /* Those weird bot buttons */ {
+    font-family: var(--font-primary)
+  }
+  font-family: var(--font-code);
+  font-size: 1rem;
+
+  /* Indentation */
+  * {
+    --custom-message-meta-space: 1ch;
+    --custom-message-margin-compact-indent: 7ch;
+  }
+  > [class^="contents_"] {
+    margin-left: 0;
+    padding-left: 0;
+    text-indent: calc((var(--irc-indent) - var(--irc-newline-indent)) * 1ch);
+  }
+  [class^="repliedMessage_"] {
+    margin-left: calc((var(--irc-reply-indent) - var(--irc-newline-indent)) * 1ch);
+    padding-left: 0ch;
+    text-indent: 0ch;
+
+  }
+
+  /* Message headers */
+  [class^="latin24CompactTimeStamp_"] {
+    height: auto;
+    width: auto;
+    opacity: 100;
+  }
+  [id^="message-username-"] {
+    margin-right: 0;
+  }
+
+  /* Timestamp brackets */
+  [class^="latin24CompactTimeStamp_"]::before {
+    content: "[";
+  }
+  [class^="latin24CompactTimeStamp_"]::after {
+    content: "]";
+  }
+
+  /* Bold usernames */
+  [class^="username_"] {
+    font-weight: bold;
+  }
+
+  /* Username angle brackets */
+  [class^="username_"]::before {
+    color: var(--text-normal);
+    content: "<";
+  }
+  [class^="username_"]::after {
+    color: var(--text-normal);
+    content: ">";
+  }
+
+  /* Replies */
+  [class^="repliedMessage_"] {
+    --timestamp-width: 5ch;
+    --custom-message-reply-indent: 0ch;
+    --text-indent: calc((var(--custom-message-margin-compact-indent) - 1ch) * -1);
+  }
+  [class^="repliedMessageClickableSpine_"] {
+    left: calc(var(--irc-reply-spine-length) * -1ch);
+    margin: 0 4px 0 2px;
+  }
+  [class^="replyBadge_"] {
+    margin-right: 1ch;
+    height: 2ch;
+    width: 2ch;
+  }
+  [class^="repliedTextPreview_"] {
+    max-height: none;
+  }
+
+  /* Blocked message */
+  [class^="blockedSystemMessage_"] {
+    padding: 0;
+    [class^="iconContainer"] {
+      margin-right: 1ch;
+      padding: 0;
+      height: 2ch;
+      width: 2ch;
+    }
+  }
+
+  /* Bot tags */
+  [class^="botTagCompact_"] {
+    display: inline;
+    height: auto;
+    top: 0;
+    margin: 0;
+    margin-left: -1ch;
+    padding: 0;
+    vertical-align: baseline;
     font-size: 1rem;
 
-    /* Indentation */
-    * {
-        --custom-message-meta-space: 1ch;
-        --custom-message-margin-compact-indent: 7ch;
-    }
-    > [class^="contents_"] {
-        margin-left: 0;
-        padding-left: 0;
-        text-indent: calc((var(--irc-indent) - var(--irc-newline-indent)) * 1ch);
-    }
-    [class^="repliedMessage_"] {
-        margin-left: calc((var(--irc-reply-indent) - var(--irc-newline-indent)) * 1ch);
-        padding-left: 0ch;
-        text-indent: 0ch;
-
+    [class^="botTagVerified_"] {
+      height: 2ch;
+      width: 2ch;
+      margin: 0;
+      vertical-align: middle;
     }
 
-    /* Message headers */
-    [class^="latin24CompactTimeStamp_"] {
-        height: auto;
-        width: auto;
-        opacity: 100;
+    [class^="botText_"] {
+      font-size: inherit;
+      vertical-align: inherit;
     }
-    [id^="message-username-"] {
-        margin-right: 0;
+  }
+  [id^="message-reply-context-"] [class^="botTagCompact_"] {
+    margin-left: 0;
+    margin-right: 1ch;
+  }
+
+  /* Bot tag brackets */
+  [class^="botTagCompact_"]::before {
+    color: inherit;
+    content: "[";
+  }
+  [class^="botTagCompact_"]::after {
+    color: inherit;
+    content: "]";
+  }
+
+  /* New member badge */
+  [class^="newMemberBadge"] {
+    margin-left: 1ch;
+  }
+
+  /* Clan tags */
+  [class^="chipletContainerInner_"] {
+    margin-left: 1ch;
+    font-size: 1rem;
+    
+    [class^="badge_"] {
+      height: 2ch;
+      width: 2ch;
+      margin: 0;
+      vertical-align: middle;
     }
 
-    /* Timestamp brackets */
-    [class^="latin24CompactTimeStamp_"]::before {
-        content: "[";
+    [class^="text-xs/"] {
+      padding: 0;
+      font-size: inherit;
     }
-    [class^="latin24CompactTimeStamp_"]::after {
-        content: "]";
-    }
+  }
+  [id^="message-reply-context-"] [class^="chipletContainerInner_"] {
+    margin-left: 0;
+  }
 
-    /* Bold usernames */
-    [class^="username_"] {
-        font-weight: bold;
-    }
+  /* Emoji */
+  .emoji {
+    height: 2ch;
+    width: 2ch;
+    vertical-align: middle;
+  }
 
-    /* Username angle brackets */
-    [class^="username_"]::before {
-        color: var(--text-normal);
-        content: "<";
-    }
-    [class^="username_"]::after {
-        color: var(--text-normal);
-        content: ">";
-    }
+  /* Mentions */
+  .mention,
+  [class^="roleMention_"] {
+    padding: 0;
+  }
 
-    /* Replies */
-    [class^="repliedMessage_"] {
-        --timestamp-width: 5ch;
-        --custom-message-reply-indent: 0ch;
-        --text-indent: calc((var(--custom-message-margin-compact-indent) - 1ch) * -1);
+  /* Channel mentions */
+  .channelMention {
+    padding: 0;
+    [class^="icon_"] {
+      height: 2ch;
+      width: 2ch;
+      margin: 0;
+      margin-top: -.4ch;
+      vertical-align: middle;
     }
-    [class^="repliedMessageClickableSpine_"] {
-        left: calc(var(--irc-reply-spine-length) * -1ch);
-        margin: 0 4px 0 2px;
-    }
-    [class^="replyBadge_"] {
-        margin-right: 1ch;
-        height: 2ch;
-        width: 2ch;
-    }
-    [class^="repliedTextPreview_"] {
-        max-height: none;
-    }
+  }
 
-    /* Blocked message */
-    [class^="blockedSystemMessage_"] {
-        padding: 0;
-        [class^="iconContainer"] {
-            margin-right: 1ch;
-            padding: 0;
-            height: 2ch;
-            width: 2ch;
-        }
-    }
+  /* Code blocks */
+  code.inline {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: 0 0 0 1px inset var(--background-tertiary);
+  }
+  pre,
+  pre * {
+    margin: 0;
+    line-height: var(--custom-message-reply-message-preview-line-height)
+  }
+  [class^="codeContainer_"] code {
+    padding: 1ch;
+    border: none;
+    box-shadow: 0 0 0 1px inset var(--background-tertiary);
+  }
 
-    /* Bot tags */
-    [class^="botTagCompact_"] {
-        display: inline;
-        height: auto;
-        top: 0;
-        margin: 0;
-        margin-left: -1ch;
-        padding: 0;
-        vertical-align: baseline;
-        font-size: 1rem;
-
-        [class^="botTagVerified_"] {
-            height: 2ch;
-            width: 2ch;
-            margin: 0;
-            vertical-align: middle;
-        }
-
-        [class^="botText_"] {
-            font-size: inherit;
-            vertical-align: inherit;
-        }
-    }
-    [id^="message-reply-context-"] [class^="botTagCompact_"] {
-        margin-left: 0;
-        margin-right: 1ch;
-    }
-
-    /* Bot tag brackets */
-    [class^="botTagCompact_"]::before {
-        color: inherit;
-        content: "[";
-    }
-    [class^="botTagCompact_"]::after {
-        color: inherit;
-        content: "]";
-    }
-
-    /* New member badge */
-    [class^="newMemberBadge"] {
-        margin-left: 1ch;
-    }
-
-    /* Clan tags */
-    [class^="chipletContainerInner_"] {
-        margin-left: 1ch;
-        font-size: 1rem;
-        
-        [class^="badge_"] {
-            height: 2ch;
-            width: 2ch;
-            margin: 0;
-            vertical-align: middle;
-        }
-
-        [class^="text-xs/"] {
-            padding: 0;
-            font-size: inherit;
-        }
-    }
-    [id^="message-reply-context-"] [class^="chipletContainerInner_"] {
-        margin-left: 0;
-    }
-
-    /* Emoji */
-    .emoji {
-        height: 2ch;
-        width: 2ch;
-        vertical-align: middle;
-    }
-
-    /* Mentions */
-    .mention,
-    [class^="roleMention_"] {
-        padding: 0;
-    }
-
-    /* Channel mentions */
-    .channelMention {
-        padding: 0;
-        [class^="icon_"] {
-            height: 2ch;
-            width: 2ch;
-            margin: 0;
-            margin-top: -.4ch;
-            vertical-align: middle;
-        }
-    }
-
-    /* Code blocks */
-    code.inline {
-        margin: 0;
-        padding: 0;
-        border: none;
-        box-shadow: 0 0 0 1px inset var(--background-tertiary);
-    }
-    pre,
-    pre * {
-        margin: 0;
-        line-height: var(--custom-message-reply-message-preview-line-height)
-    }
-    [class^="codeContainer_"] code {
-        padding: 1ch;
-        border: none;
-        box-shadow: 0 0 0 1px inset var(--background-tertiary);
-    }
-
-    /* Text file preview */
-    [class^="nonVisualMediaItemContainer_"] {
-        margin: 0;
-    }
-    [class^="textContainer"] code {
-        margin: 1ch 1ch 0;
-        padding: 1ch;
-    }
+  /* Text file preview */
+  [class^="nonVisualMediaItemContainer_"] {
+    margin: 0;
+  }
+  [class^="textContainer"] code {
+    margin: 1ch 1ch 0;
+    padding: 1ch;
+  }
 }
 
 /* Thread Spines */
 [class*="compact"][class*="hasThread_"] {
-    [class^="spine_"] { /* The top half that is straight */
-        left: calc(var(--irc-reply-spine-length) * -1ch);
-        margin-left: 2px;
-        width: calc((var(--irc-reply-spine-length) - 0.5) * 1ch);
-    }
+  [class^="spine_"] { /* The top half that is straight */
+    left: calc(var(--irc-reply-spine-length) * -1ch);
+    margin-left: 2px;
+    width: calc((var(--irc-reply-spine-length) - 0.5) * 1ch);
+  }
 
-    [class^="contents_"]::before { /* The bottom half that bends */
-        left: calc(var(--irc-reply-spine-length) * -1ch);
-        margin-left: 2px;
-    }
+  [class^="contents_"]::before { /* The bottom half that bends */
+    left: calc(var(--irc-reply-spine-length) * -1ch);
+    margin-left: 2px;
+  }
 }
 
 /* Message input */
 [class^="textArea_"] * {
-    font-family: var(--font-code);
+  font-family: var(--font-code);
 }
