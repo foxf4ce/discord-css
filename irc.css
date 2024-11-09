@@ -7,7 +7,7 @@
   --irc-reply-indent: 8;
   --irc-reply-spine-length: 3;
 }
-[id^="chat-messages"] [class*="compact_"] {
+[id^="chat-messages"] div[class*="compact_"] {
   margin-top: 0;
   padding-top: 0;
   padding-bottom: 0;
@@ -59,6 +59,16 @@
     height: auto;
     width: auto;
     opacity: 100;
+  }
+  [class^="avatar_"] {
+    top: -1px;
+    width: 2ch;
+    height: 2ch;
+    min-height: 2ch;
+    margin: 0;
+    margin-right: 1ch;
+    vertical-align: middle;
+    border-radius: 4px;
   }
   [id^="message-username-"] {
     margin-right: 0;
@@ -182,9 +192,11 @@
   }
 
   /* Emoji */
+  * {
+    --custom-emoji-size-emoji: 2ch;
+  }
   .emoji {
-    height: 2ch;
-    width: 2ch;
+    top: -1px;
     vertical-align: middle;
   }
 
