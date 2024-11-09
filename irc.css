@@ -10,23 +10,27 @@
     margin-top: 0;
     padding-top: 0;
     padding-bottom: 0;
-    padding-left: calc(var(--irc-newline-indent) * 1ch);
+    padding-left: calc(var(--irc-newline-indent) * 1ch); 
 }
 [class*="compact_"] {
     /* Fonts */
     * {
         font-family: var(--font-code);
         
-        :not([id^="message-accessories-"] *),
-        code.inline,
-        [class^="textContainer"] code { /* Text file previews */
+        :not([id^="message-accessories-"] *) {
             font-size: 1rem;
             line-height: 1.375rem;
         }
     }
+    [class^="repliedMessage"],
+    code.inline,
+    [class^="textContainer"] code /* Text file previews */ {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
     [class^="embedWrapper_"] *,
     [class^="attachment_"] *,
-    [class^="children_"] * { /* Those weird bot buttons */
+    [class^="children_"] * /* Those weird bot buttons */ {
         font-family: var(--font-primary)
     }
     font-family: var(--font-code);
