@@ -75,10 +75,10 @@
   }
 
   /* Timestamp brackets */
-  [class*="timestamp_"]::before {
+  [class*="timestamp_"]:not(:has([aria-label*="Edited"]))::before {
     content: "[";
   }
-  [class*="timestamp_"]::after {
+  [class*="timestamp_"]:not(:has([aria-label*="Edited"]))::after {
     content: "]";
   }
 
