@@ -55,7 +55,7 @@
   }
 
   /* Message headers */
-  [class^="latin24CompactTimeStamp_"] {
+  [class*="timestamp_"] {
     height: auto;
     width: auto;
     opacity: 100;
@@ -75,10 +75,10 @@
   }
 
   /* Timestamp brackets */
-  [class^="latin24CompactTimeStamp_"]::before {
+  [class*="timestamp_"]::before {
     content: "[";
   }
-  [class^="latin24CompactTimeStamp_"]::after {
+  [class*="timestamp_"]::after {
     content: "]";
   }
 
