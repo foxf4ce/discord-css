@@ -1,0 +1,49 @@
+/* --------------------------------------- */
+/*     system24 IRC compact mode tweaks    */
+/* --------------------------------------- */
+[id*="message-username-"] > [class*="username"],
+[class*="header_"] [class*="headerText_"] {
+	font-family: var(--font); /* force theme font over nitro custom username fonts */
+	-webkit-margin-end: 0 !important;
+    margin-inline-end: 0 !important;
+}
+[class*="header_"] > [class*="timestamp_"] {
+	display: inline;
+	font-size: 1rem !important;
+	margin-right: 1ch !important;
+}
+[class*="header_"] > [class*="timestampVisibleOnHover_"] {
+	opacity: 100%;
+}
+[class*="header_"] [class*="botTagCompact_"] {
+	font-size: 1rem;
+	height: 1rem;
+	margin: 0 -.5ch;
+	padding: 0 .5ch;
+}
+[class*="botTagCompact_"] > [class*="botTagVerified_"] {
+	width: 2ch;
+	margin-inline-start: -.5ch;
+}
+
+/* Username Brackets & cute emphasis formatting */
+[class*="contents_"]:has(em:not(:empty):only-child) [class*="timestamp_"]::after,
+[class*="contents_"]:has(em + [class*="timestamp_"]) > h3 > [class*="timestamp_"]::after {
+	content: " *";
+	color: var(--text-muted);
+}
+[id*="message-content-"] > em:not(:empty):only-child,
+[id*="message-content-"] > em:has(+ [class*="timestamp_"]) {
+	font-weight: initial;
+	color: var(--text-muted);
+}
+[class*="contents_"]:not(:has(em:not(:empty):only-child)) span > [class*="username"]::before,
+[class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::before {
+	content: "[";
+	color: var(--text-default);
+}
+[class*="contents_"]:not(:has(em:not(:empty):only-child)) span > [class*="username"]::after,
+[class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::after  {
+	content: "]";
+	color: var(--text-default);
+}
