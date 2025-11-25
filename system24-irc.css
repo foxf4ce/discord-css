@@ -1,29 +1,88 @@
-/* --------------------------------------- */
-/*     system24 IRC compact mode tweaks    */
-/* --------------------------------------- */
-[id*="message-username-"] > [class*="username"],
-[class*="header_"] [class*="headerText_"] {
-	font-family: var(--font); /* force theme font over nitro custom username fonts */
-	-webkit-margin-end: 0 !important;
-    margin-inline-end: 0 !important;
+body {
+	/* --------------------------------------- */
+	/*     system24 IRC compact mode tweaks    */
+	/* --------------------------------------- */
+
+	/* */
+	--line-height: 1.5rem;
+}
+
+/* Group spacing 0px, actually set to 0px instead of 0.0625rem or whatever */
+.group-spacing-0 [class*="groupStart_"] {
+	--custom-group-spacing-start: 0px !important;
+}
+[class*="message_"] {
+	--custom-message-margin-compact-indent: 8ch;
+}
+[class*="message_"] span {
+	line-height: var(--line-height);
+}
+/* We can make it more compact */
+[class*="message_"][class*="wrapper_"] {
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+[class*="compact_"] [class*="contents_"] {
+	text-indent: calc((var(--custom-message-margin-compact-indent) - 2ch)*-1);
+}
+.visual-refresh [class*="message_"] {
+	margin-left: 0;
+}
+
+/* Timestamps */
+[class*="timestampInline_"] {
+	-webkit-margin-start: 1ch;
+	margin-inline-start: 1ch;
 }
 [class*="header_"] > [class*="timestamp_"] {
 	display: inline;
-	font-size: 1rem !important;
+	font-size: inherit !important;
 	margin-right: 1ch !important;
 }
 [class*="header_"] > [class*="timestampVisibleOnHover_"] {
 	opacity: 100%;
 }
+
+/* Bot tags */
+[class*="botTag_"] {
+	top: 0;
+}
+[class*="botTagCompact_"] {
+	margin-inline-end: 0ch;
+}
+[class*="header_"] [class*="botTagCompact_"] span {
+	vertical-align: baseline;
+	font-size: inherit;
+}
 [class*="header_"] [class*="botTagCompact_"] {
+	display: inline;
 	font-size: 1rem;
-	height: 1rem;
-	margin: 0 -.5ch;
+	vertical-align: baseline;
 	padding: 0 .5ch;
 }
 [class*="botTagCompact_"] > [class*="botTagVerified_"] {
+	display: inline-block;
+	vertical-align: text-top;
 	width: 2ch;
-	margin-inline-start: -.5ch;
+	height: 2ch;
+	margin-inline-start: 0;
+}
+[class*="rem_"][class*="botTagCompact_"] {
+	padding: 0 .5ch;
+	margin-top: 0;
+}
+[class*="repliedMessage_"] > [class*="botTagCompact_"] {
+	margin-inline-end: 1ch;
+}
+
+/* Usernames */
+[id*="message-username-"] > [class*="username"],
+[class*="header_"] [class*="headerText_"] {
+	font-family: var(--font); /* force theme font over nitro custom username fonts */
+	letter-spacing: inherit; /* Ignore nitro username fonts letter spacing */
+	-webkit-margin-end: 0 !important;
+    margin-inline-end: 0 !important;
+	color: var(--accent-3);
 }
 
 /* Username Brackets & cute emphasis formatting */
@@ -46,4 +105,12 @@
 [class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::after  {
 	content: "]";
 	color: var(--text-default);
+}
+
+/* New member badge */
+[class*="headerText_"] > span > [class*="newMemberBadge_"] {
+	margin-right: -.5ch;
+	margin-inline-start: 0.5;
+	width: 2ch;
+	height: 2ch;
 }
