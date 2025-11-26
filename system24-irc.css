@@ -136,9 +136,20 @@ body {
 }
 [class*="contents_"]:not(:has(em:not(:empty):only-child)) span > [class*="username"]::after,
 [class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::after,
-[class*="repliedMessage_"] [class*="username_"]::after  {
+[class*="repliedMessage_"] [class*="username_"]::after {
 	content: "]";
 	color: var(--text-default);
+}
+[class*="convenienceGlowGradient_"]::after /* what the hell even is this */ {
+	background: unset;
+	inset: unset;
+	position: unset;
+	-webkit-text-fill-color: unset;
+	filter: unset;
+	opacity: unset;
+	text-indent: unset;
+	transition: unset;
+	z-index: unset;
 }
 
 /* New member badge */
