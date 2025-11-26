@@ -8,48 +8,48 @@ body {
 }
 
 /* Group spacing 0px, actually set to 0px instead of 0.0625rem or whatever */
-.group-spacing-0 [class*="groupStart_"] {
+.group-spacing-0 .groupStart__5126c {
 	--custom-group-spacing-start: 0px !important;
 }
-[class*="message_"] {
+.message__5126c {
 	--custom-message-margin-compact-indent: 0;
 	--custom-message-meta-space: 1ch;
 	border-radius: .5ch !important;
 }
-[class*="message_"] span {
+.message__5126c span {
 	line-height: var(--line-height);
 }
 /* We can make it more compact */
-[class*="message_"][class*="wrapper_"] {
+.message__5126c.wrapper_c19a55 {
 	padding-bottom: 0px;
 	padding-top: 0px;
 }
-[class*="compact_"] [class*="contents_"] {
+.compact_c19a55 .contents_c19a55 {
 	text-indent: calc((var(--custom-message-margin-compact-indent) - 2ch)*-1);
 }
-.visual-refresh [class*="message_"] {
+.visual-refresh .message__5126c {
 	margin-left: 1rem;
 }
-[class*="compact_"] [class*="repliedMessage_"] {
+.compact_c19a55 .repliedMessage_c19a55  {
 	font-size: 100%;
 	padding-inline-start: 0ch;
 }
-[class*="compact_"] [class*="messageSpine_"]:before,
-[class*="compact_"] [class*="repliedMessageClickableSpine_"] {
+.compact_c19a55 .messageSpine_c19a55:before,
+.compact_c19a55 .repliedMessageClickableSpine_c19a55 {
 	display: none;
 }
-[class*="replyBadge_"] {
+.replyBadge_c19a55 {
 	display: inline;
 	padding-inline-end: 1ch;
 }
-[class*="replyBadge_"]::after {
+.replyBadge_c19a55::after {
 	content: "-->";
 	color: var(--header-secondary);
 }
-[class*="replyBadge_"] svg {
+.replyBadge_c19a55 svg {
 	display: none;
 }
-[class*="message_"][class*="mentioned_"]::before,
+.message__5126c.mentioned__5126c::before,
 [class*="replying_"]::before,
 [class*="ephemeral_"]::before {
 	display: none;
@@ -60,87 +60,87 @@ body {
 	-webkit-margin-start: 1ch;
 	margin-inline-start: 1ch;
 }
-[class*="header_"] > [class*="timestamp_"] {
+.header_c19a55 > .timestamp_c19a55 {
 	display: inline;
 	font-size: inherit !important;
 	margin-right: 1ch !important;
 }
-[class*="header_"] > [class*="timestampVisibleOnHover_"] {
+.header_c19a55 > .timestampVisibleOnHover_c19a55 {
 	opacity: 100%;
 }
 
 /* Bot tags */
-[class*="botTag_"] {
+.botTag__82f07  {
 	top: 0;
 }
-[class*="botTagCompact_"] {
+.botTagCompact_c19a55  {
 	margin-inline-start: -1ch;
 	margin-inline-end: -1ch;
 }
-[class*="header_"] [class*="botTagCompact_"] span {
+.header_c19a55 .botTagCompact_c19a55  span {
 	vertical-align: baseline;
 	font-size: inherit;
 }
-[class*="header_"] [class*="botTagCompact_"] {
+.header_c19a55 .botTagCompact_c19a55  {
 	display: inline;
 	font-size: 1rem;
 	vertical-align: baseline;
 	padding: 0;
 }
-[class*="botTagCompact_"] > [class*="botTagVerified_"] {
+.botTagCompact_c19a55  > .botTagVerified__82f07 {
 	display: inline-block;
 	vertical-align: text-top;
 	width: 2ch;
 	height: 2ch;
 	margin-inline-start: 0;
 }
-[class*="rem_"][class*="botTagCompact_"] {
+.rem__82f07.botTagCompact_c19a55  {
 	padding: 0 .5ch;
 	margin-top: 0;
 }
-[class*="repliedMessage_"] > [class*="botTagCompact_"] {
+.repliedMessage_c19a55  > .botTagCompact_c19a55  {
 	margin-inline-start: 0ch;
 	margin-inline-end: 1ch;
 }
 
 /* Usernames */
-[id*="message-username-"] > [class*="username"],
-[class*="header_"] [class*="headerText_"] {
+[id*="message-username-"] > .username_c19a55,
+.header_c19a55 .headerText_c19a55 {
 	font-family: var(--font); /* force theme font over nitro custom username fonts */
 	letter-spacing: inherit; /* Ignore nitro username fonts letter spacing */
 	-webkit-margin-end: 0 !important;
     margin-inline-end: 0 !important;
 	color: var(--accent-3);
 }
-[class*="repliedMessage_"] [class*="username_"] {
+.repliedMessage_c19a55 .username_c19a55 {
 	font-family: var(--font);
 	color: var(--text-default) !important;
 }
 
 /* Username Brackets & cute emphasis formatting */
-[class*="contents_"]:has(em:not(:empty):only-child) [class*="timestamp_"]::after,
-[class*="contents_"]:has(em + [class*="timestamp_"]) > h3 > [class*="timestamp_"]::after {
+.contents_c19a55:has(em:not(:empty):only-child) .timestamp_c19a55::after,
+.contents_c19a55:has(em + .timestamp_c19a55) > h3 > .timestamp_c19a55::after {
 	content: " *";
 	color: var(--text-muted);
 }
 [id*="message-content-"] > em:not(:empty):only-child,
-[id*="message-content-"] > em:has(+ [class*="timestamp_"]) {
+[id*="message-content-"] > em:has(+ .timestamp_c19a55) {
 	font-weight: initial;
 	color: var(--text-muted);
 }
-[class*="contents_"]:not(:has(em:not(:empty):only-child)) span > [class*="username"]::before,
-[class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::before,
-[class*="repliedMessage_"] [class*="username_"]::before {
+.contents_c19a55:not(:has(em:not(:empty):only-child)) span > .username_c19a55::before,
+.contents_c19a55:not(:has(em + .timestamp_c19a55)) span > .username_c19a55::before,
+.repliedMessage_c19a55 .username_c19a55::before {
 	content: "[";
 	color: var(--text-default);
 }
-[class*="contents_"]:not(:has(em:not(:empty):only-child)) span > [class*="username"]::after,
-[class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::after,
-[class*="repliedMessage_"] [class*="username_"]::after {
+.contents_c19a55:not(:has(em:not(:empty):only-child)) span > .username_c19a55::after,
+.contents_c19a55:not(:has(em + .timestamp_c19a55)) span > .username_c19a55::after,
+.repliedMessage_c19a55 .username_c19a55::after {
 	content: "]";
 	color: var(--text-default);
 }
-[class*="convenienceGlowGradient_"]::after /* what the hell even is this */ {
+.convenienceGlowGradient_e5de78::after /* what the hell even is this */ {
 	background: unset;
 	inset: unset;
 	position: unset;
@@ -153,13 +153,13 @@ body {
 }
 
 /* New member badge */
-[class*="headerText_"] > span > [class*="newMemberBadge_"] {
+.headerText_c19a55 > span > .newMemberBadge_f80704 {
 	margin-right: -.5ch;
 	margin-inline-start: 0;
 	width: 2ch;
 	height: 2ch;
 }
-[class*="headerText_"] > span > [class*="newMemberBadge_"] > svg {
+.headerText_c19a55 > span > .newMemberBadge_f80704 > svg {
 	width: 100%;
 	height: 100%;
 }
