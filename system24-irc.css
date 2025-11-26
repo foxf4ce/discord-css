@@ -12,7 +12,9 @@ body {
 	--custom-group-spacing-start: 0px !important;
 }
 [class*="message_"] {
-	--custom-message-margin-compact-indent: 8ch;
+	--custom-message-margin-compact-indent: 0;
+	--custom-message-meta-space: 1ch;
+	border-radius: .5ch !important;
 }
 [class*="message_"] span {
 	line-height: var(--line-height);
@@ -26,7 +28,31 @@ body {
 	text-indent: calc((var(--custom-message-margin-compact-indent) - 2ch)*-1);
 }
 .visual-refresh [class*="message_"] {
-	margin-left: 0;
+	margin-left: 1rem;
+}
+[class*="compact_"] [class*="repliedMessage_"] {
+	font-size: 100%;
+	padding-inline-start: 0ch;
+}
+[class*="compact_"] [class*="messageSpine_"]:before,
+[class*="compact_"] [class*="repliedMessageClickableSpine_"] {
+	display: none;
+}
+[class*="replyBadge_"] {
+	display: inline;
+	padding-inline-end: 1ch;
+}
+[class*="replyBadge_"]::after {
+	content: "-->";
+	color: var(--header-secondary);
+}
+[class*="replyBadge_"] svg {
+	display: none;
+}
+[class*="message_"][class*="mentioned_"]::before,
+[class*="replying_"]::before,
+[class*="ephemeral_"]::before {
+	display: none;
 }
 
 /* Timestamps */
@@ -48,7 +74,8 @@ body {
 	top: 0;
 }
 [class*="botTagCompact_"] {
-	margin-inline-end: 0ch;
+	margin-inline-start: -1ch;
+	margin-inline-end: -1ch;
 }
 [class*="header_"] [class*="botTagCompact_"] span {
 	vertical-align: baseline;
@@ -58,7 +85,7 @@ body {
 	display: inline;
 	font-size: 1rem;
 	vertical-align: baseline;
-	padding: 0 .5ch;
+	padding: 0;
 }
 [class*="botTagCompact_"] > [class*="botTagVerified_"] {
 	display: inline-block;
@@ -72,6 +99,7 @@ body {
 	margin-top: 0;
 }
 [class*="repliedMessage_"] > [class*="botTagCompact_"] {
+	margin-inline-start: 0ch;
 	margin-inline-end: 1ch;
 }
 
@@ -83,6 +111,10 @@ body {
 	-webkit-margin-end: 0 !important;
     margin-inline-end: 0 !important;
 	color: var(--accent-3);
+}
+[class*="repliedMessage_"] [class*="username_"] {
+	font-family: var(--font);
+	color: var(--text-default) !important;
 }
 
 /* Username Brackets & cute emphasis formatting */
@@ -97,12 +129,14 @@ body {
 	color: var(--text-muted);
 }
 [class*="contents_"]:not(:has(em:not(:empty):only-child)) span > [class*="username"]::before,
-[class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::before {
+[class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::before,
+[class*="repliedMessage_"] [class*="username_"]::before {
 	content: "[";
 	color: var(--text-default);
 }
 [class*="contents_"]:not(:has(em:not(:empty):only-child)) span > [class*="username"]::after,
-[class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::after  {
+[class*="contents_"]:not(:has(em + [class*="timestamp_"])) span > [class*="username"]::after,
+[class*="repliedMessage_"] [class*="username_"]::after  {
 	content: "]";
 	color: var(--text-default);
 }
@@ -110,7 +144,11 @@ body {
 /* New member badge */
 [class*="headerText_"] > span > [class*="newMemberBadge_"] {
 	margin-right: -.5ch;
-	margin-inline-start: 0.5;
+	margin-inline-start: 0;
 	width: 2ch;
 	height: 2ch;
+}
+[class*="headerText_"] > span > [class*="newMemberBadge_"] > svg {
+	width: 100%;
+	height: 100%;
 }
