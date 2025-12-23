@@ -8,48 +8,48 @@ body {
 }
 
 /* Group spacing 0px, actually set to 0px instead of 0.0625rem or whatever */
-.group-spacing-0 .groupStart__5126c {
+.group-spacing-0 ._5126c0cd07f243a0-groupStart {
 	--custom-group-spacing-start: 0px !important;
 }
-.message__5126c {
+._5126c0cd07f243a0-message {
 	--custom-message-margin-compact-indent: 0;
 	--custom-message-meta-space: 1ch;
 	border-radius: .5ch !important;
 }
-.message__5126c span {
+._5126c0cd07f243a0-message span {
 	line-height: var(--line-height);
 }
 /* We can make it more compact */
-.message__5126c.wrapper_c19a55 {
+._5126c0cd07f243a0-message.c19a557985eb7793-wrapper {
 	padding-bottom: 0px;
 	padding-top: 0px;
 }
-.compact_c19a55 .contents_c19a55 {
+.c19a557985eb7793-compact .c19a557985eb7793-contents {
 	text-indent: calc((var(--custom-message-margin-compact-indent) - 2ch)*-1);
 }
-.visual-refresh .message__5126c {
+.visual-refresh ._5126c0cd07f243a0-message {
 	margin-left: 1rem;
 }
-.compact_c19a55 .repliedMessage_c19a55  {
+.c19a557985eb7793-compact .c19a557985eb7793-repliedMessage  {
 	font-size: 100%;
 	padding-inline-start: 0ch;
 }
-.compact_c19a55 .messageSpine_c19a55:before,
-.compact_c19a55 .repliedMessageClickableSpine_c19a55 {
+.c19a557985eb7793-compact .c19a557985eb7793-messageSpine:before,
+.c19a557985eb7793-compact .c19a557985eb7793-repliedMessageClickableSpine {
 	display: none;
 }
-.replyBadge_c19a55 {
+.c19a557985eb7793-replyBadge {
 	display: inline;
 	padding-inline-end: 1ch;
 }
-.replyBadge_c19a55::after {
+.c19a557985eb7793-replyBadge::after {
 	content: "-->";
 	color: var(--header-secondary);
 }
-.replyBadge_c19a55 svg {
+.c19a557985eb7793-replyBadge svg {
 	display: none;
 }
-.message__5126c.mentioned__5126c::before,
+._5126c0cd07f243a0-message._5126c0cd07f243a0-mentioned::before,
 [class*="replying_"]::before,
 [class*="ephemeral_"]::before {
 	display: none;
@@ -60,87 +60,87 @@ body {
 	-webkit-margin-start: 1ch;
 	margin-inline-start: 1ch;
 }
-.header_c19a55 > .timestamp_c19a55 {
+.c19a557985eb7793-header > .c19a557985eb7793-timestamp {
 	display: inline;
 	font-size: inherit !important;
 	margin-right: 1ch !important;
 }
-.header_c19a55 > .timestampVisibleOnHover_c19a55 {
+.c19a557985eb7793-header > .c19a557985eb7793-timestampVisibleOnHover {
 	opacity: 100%;
 }
 
 /* Bot tags */
-.botTag__82f07  {
+._82f0793afa59e5dc-botTag  {
 	top: 0;
 }
-.botTagCompact_c19a55  {
+.c19a557985eb7793-botTagCompact  {
 	margin-inline-start: -1ch;
 	margin-inline-end: -1ch;
 }
-.header_c19a55 .botTagCompact_c19a55  span {
+.c19a557985eb7793-header .c19a557985eb7793-botTagCompact  span {
 	vertical-align: baseline;
 	font-size: inherit;
 }
-.header_c19a55 .botTagCompact_c19a55  {
+.c19a557985eb7793-header .c19a557985eb7793-botTagCompact  {
 	display: inline;
 	font-size: 1rem;
 	vertical-align: baseline;
 	padding: 0;
 }
-.botTagCompact_c19a55  > .botTagVerified__82f07 {
+.c19a557985eb7793-botTagCompact  > ._82f0793afa59e5dc-botTagVerified {
 	display: inline-block;
 	vertical-align: text-top;
 	width: 2ch;
 	height: 2ch;
 	margin-inline-start: 0;
 }
-.rem__82f07.botTagCompact_c19a55  {
+._82f0793afa59e5dc-rem.c19a557985eb7793-botTagCompact  {
 	padding: 0 .5ch;
 	margin-top: 0;
 }
-.repliedMessage_c19a55  > .botTagCompact_c19a55  {
+.c19a557985eb7793-repliedMessage  > .c19a557985eb7793-botTagCompact  {
 	margin-inline-start: 0ch;
 	margin-inline-end: 1ch;
 }
 
 /* Usernames */
-[id*="message-username-"] > .username_c19a55,
-.header_c19a55 .headerText_c19a55 {
+[id*="message-username-"] > .c19a557985eb7793-username,
+.c19a557985eb7793-header .c19a557985eb7793-headerText {
 	font-family: var(--font); /* force theme font over nitro custom username fonts */
 	letter-spacing: inherit; /* Ignore nitro username fonts letter spacing */
 	-webkit-margin-end: 0 !important;
     margin-inline-end: 0 !important;
 	color: var(--accent-3);
 }
-.repliedMessage_c19a55 .username_c19a55 {
+.c19a557985eb7793-repliedMessage .c19a557985eb7793-username {
 	font-family: var(--font);
 	color: var(--text-default) !important;
 }
 
 /* Username Brackets & cute emphasis formatting */
-.contents_c19a55:has(em:not(:empty):only-child) .timestamp_c19a55::after,
-.contents_c19a55:has(em + .timestamp_c19a55) > h3 > .timestamp_c19a55::after {
+.c19a557985eb7793-contents:has(em:not(:empty):only-child) .c19a557985eb7793-timestamp::after,
+.c19a557985eb7793-contents:has(em + .c19a557985eb7793-timestamp) > h3 > .c19a557985eb7793-timestamp::after {
 	content: " *";
 	color: var(--text-muted);
 }
 [id*="message-content-"] > em:not(:empty):only-child,
-[id*="message-content-"] > em:has(+ .timestamp_c19a55) {
+[id*="message-content-"] > em:has(+ .c19a557985eb7793-timestamp) {
 	font-weight: initial;
 	color: var(--text-muted);
 }
-.contents_c19a55:not(:has(em:not(:empty):only-child)) span > .username_c19a55::before,
-.contents_c19a55:not(:has(em + .timestamp_c19a55)) span > .username_c19a55::before,
-.repliedMessage_c19a55 .username_c19a55::before {
+.c19a557985eb7793-contents:not(:has(em:not(:empty):only-child)) span > .c19a557985eb7793-username::before,
+.c19a557985eb7793-contents:not(:has(em + .c19a557985eb7793-timestamp)) span > .c19a557985eb7793-username::before,
+.c19a557985eb7793-repliedMessage .c19a557985eb7793-username::before {
 	content: "[";
 	color: var(--text-default);
 }
-.contents_c19a55:not(:has(em:not(:empty):only-child)) span > .username_c19a55::after,
-.contents_c19a55:not(:has(em + .timestamp_c19a55)) span > .username_c19a55::after,
-.repliedMessage_c19a55 .username_c19a55::after {
+.c19a557985eb7793-contents:not(:has(em:not(:empty):only-child)) span > .c19a557985eb7793-username::after,
+.c19a557985eb7793-contents:not(:has(em + .c19a557985eb7793-timestamp)) span > .c19a557985eb7793-username::after,
+.c19a557985eb7793-repliedMessage .c19a557985eb7793-username::after {
 	content: "]";
 	color: var(--text-default);
 }
-.convenienceGlowGradient_e5de78::after /* what the hell even is this */ {
+.e5de7811b2777bfa-convenienceGlowGradient::after /* what the hell even is this */ {
 	background: unset;
 	inset: unset;
 	position: unset;
@@ -153,13 +153,13 @@ body {
 }
 
 /* New member badge */
-.headerText_c19a55 > span > .newMemberBadge_f80704 {
+.c19a557985eb7793-headerText > span > .f80704ca4ba27cf7-newMemberBadge {
 	margin-right: -.5ch;
 	margin-inline-start: 0;
 	width: 2ch;
 	height: 2ch;
 }
-.headerText_c19a55 > span > .newMemberBadge_f80704 > svg {
+.c19a557985eb7793-headerText > span > .f80704ca4ba27cf7-newMemberBadge > svg {
 	width: 100%;
 	height: 100%;
 }
