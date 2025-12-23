@@ -30,43 +30,14 @@ body {
 .visual-refresh ._5126c0cd07f243a0-message {
 	margin-left: 1rem;
 }
-.c19a557985eb7793-compact .c19a557985eb7793-repliedMessage  {
-	font-size: 100%;
-	padding-inline-start: 0ch;
-}
 .c19a557985eb7793-compact .c19a557985eb7793-messageSpine:before,
 .c19a557985eb7793-compact .c19a557985eb7793-repliedMessageClickableSpine {
-	display: none;
-}
-.c19a557985eb7793-replyBadge {
-	display: inline;
-	padding-inline-end: 1ch;
-}
-.c19a557985eb7793-replyBadge::after {
-	content: "-->";
-	color: var(--header-secondary);
-}
-.c19a557985eb7793-replyBadge svg {
 	display: none;
 }
 ._5126c0cd07f243a0-message._5126c0cd07f243a0-mentioned::before,
 [class*="replying_"]::before,
 [class*="ephemeral_"]::before {
 	display: none;
-}
-
-/* Timestamps */
-[class*="timestampInline_"] {
-	-webkit-margin-start: 1ch;
-	margin-inline-start: 1ch;
-}
-.c19a557985eb7793-header > .c19a557985eb7793-timestamp {
-	display: inline;
-	font-size: inherit !important;
-	margin-right: 1ch !important;
-}
-.c19a557985eb7793-header > .c19a557985eb7793-timestampVisibleOnHover {
-	opacity: 100%;
 }
 
 /* Bot tags */
@@ -103,20 +74,6 @@ body {
 	margin-inline-end: 1ch;
 }
 
-/* Usernames */
-[id*="message-username-"] > .c19a557985eb7793-username,
-.c19a557985eb7793-header .c19a557985eb7793-headerText {
-	font-family: var(--font); /* force theme font over nitro custom username fonts */
-	letter-spacing: inherit; /* Ignore nitro username fonts letter spacing */
-	-webkit-margin-end: 0 !important;
-    margin-inline-end: 0 !important;
-	color: var(--accent-3);
-}
-.c19a557985eb7793-repliedMessage .c19a557985eb7793-username {
-	font-family: var(--font);
-	color: var(--text-default) !important;
-}
-
 /* Username Brackets & cute emphasis formatting */
 .c19a557985eb7793-contents:has(em:not(:empty):only-child) .c19a557985eb7793-timestamp::after,
 .c19a557985eb7793-contents:has(em + .c19a557985eb7793-timestamp) > h3 > .c19a557985eb7793-timestamp::after {
@@ -127,18 +84,6 @@ body {
 [id*="message-content-"] > em:has(+ .c19a557985eb7793-timestamp) {
 	font-weight: initial;
 	color: var(--text-muted);
-}
-.c19a557985eb7793-contents:not(:has(em:not(:empty):only-child)) span > .c19a557985eb7793-username::before,
-.c19a557985eb7793-contents:not(:has(em + .c19a557985eb7793-timestamp)) span > .c19a557985eb7793-username::before,
-.c19a557985eb7793-repliedMessage .c19a557985eb7793-username::before {
-	content: "[";
-	color: var(--text-default);
-}
-.c19a557985eb7793-contents:not(:has(em:not(:empty):only-child)) span > .c19a557985eb7793-username::after,
-.c19a557985eb7793-contents:not(:has(em + .c19a557985eb7793-timestamp)) span > .c19a557985eb7793-username::after,
-.c19a557985eb7793-repliedMessage .c19a557985eb7793-username::after {
-	content: "]";
-	color: var(--text-default);
 }
 .e5de7811b2777bfa-convenienceGlowGradient::after /* what the hell even is this */ {
 	background: unset;
@@ -152,14 +97,129 @@ body {
 	z-index: unset;
 }
 
-/* New member badge */
+/* --------------- Messages -------------- */
+
+/* Timestamp */
+.c19a557985eb7793-header > .c19a557985eb7793-timestamp {
+	width: unset;
+	font-size: inherit !important;
+}
+.c19a557985eb7793-header > .c19a557985eb7793-timestampVisibleOnHover {
+	opacity: 100%;
+}
+
+/* Username */
+.c19a557985eb7793-header .c19a557985eb7793-headerText {
+	-webkit-margin-end: 0 !important;
+    margin-inline-end: 0 !important;
+}
+.c19a557985eb7793-headerText > .c19a557985eb7793-username {
+	font-family: var(--font) !important; /* force theme font over nitro custom username fonts */
+	letter-spacing: inherit; /* Ignore nitro username fonts letter spacing */
+	line-height: var(--line-height);
+}
+.c19a557985eb7793-contents:not(:has(em:not(:empty):only-child)) span > .c19a557985eb7793-username::before,
+.c19a557985eb7793-contents:not(:has(em + .c19a557985eb7793-timestamp)) span > .c19a557985eb7793-username::before {
+	content: "[";
+	color: var(--text-default);
+}
+.c19a557985eb7793-contents:not(:has(em:not(:empty):only-child)) span > .c19a557985eb7793-username::after,
+.c19a557985eb7793-contents:not(:has(em + .c19a557985eb7793-timestamp)) span > .c19a557985eb7793-username::after {
+	content: "]";
+	color: var(--text-default);
+}
+
+/* --------------- Replies --------------- */
+
+.c19a557985eb7793-compact > .c19a557985eb7793-repliedMessage  {
+	font-size: 100%;
+	padding-inline-start: 0ch;
+	color: var(--text-muted);
+}
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-repliedTextPreview:hover,
+.c19a557985eb7793-repliedTextPreview.c19a557985eb7793-repliedMessageClickableSpineHovered {
+	color: var(--header-secondary) !important;
+}
+
+/* Reply badge */
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-replyBadge {
+	width: unset;
+	margin: 0;
+	background: transparent;
+}
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-replyBadge::after {
+	content: '--> ';
+	color: var(--text-muted);
+}
+.c19a557985eb7793-replyBadge > svg {
+	display: none;
+}
+
+/* Username */
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-username {
+	font-family: var(--font);
+	line-height: var(--line-height);
+	color: var(--text-muted) !important;
+}
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-username:hover {
+	color: var(--header-secondary) !important;
+}
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-username::before {
+	content: "[";
+	color: var(--text-muted);
+}
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-username:hover::before {
+	color: var(--header-secondary);
+}
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-username::after {
+	content: "]";
+	color: var(--text-muted);
+}
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-username:hover::after {
+	color: var(--header-secondary);
+}
+
+/* Trailing icon */
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-repliedTextContentTrailingIcon {
+	vertical-align: top;
+	margin: 0;
+	margin-inline-start: 0;
+	width: 2ch;
+	height: 2ch;
+}
+.c19a557985eb7793-repliedMessage > .c19a557985eb7793-repliedTextContentTrailingIcon > svg {
+	vertical-align: top;
+	margin: 0;
+	margin-inline-start: 0;
+	width: 2ch;
+	height: 2ch;
+}
+
+/* ------------- Nonspecific ------------- */
+
+/* Role icon & new member badge */
+.c19a557985eb7793-headerText img.c19a557985eb7793-roleIcon,
 .c19a557985eb7793-headerText > span > .f80704ca4ba27cf7-newMemberBadge {
-	margin-right: -.5ch;
+	vertical-align: top;
+	margin: 0;
 	margin-inline-start: 0;
 	width: 2ch;
 	height: 2ch;
 }
 .c19a557985eb7793-headerText > span > .f80704ca4ba27cf7-newMemberBadge > svg {
+	width: 100%;
+	height: 100%;
+}
+
+/* Emoji */
+._75abce0dd8453367-emojiContainer {
+	display: inline-flex;
+	width: 2ch;
+	height: 2ch;
+	vertical-align: text-top;
+}
+.c19a557985eb7793-messageContent > ._75abce0dd8453367-emojiContainer > .emoji,
+.c19a557985eb7793-messageContent > ._75abce0dd8453367-emojiContainer > .jumboable {
 	width: 100%;
 	height: 100%;
 }
